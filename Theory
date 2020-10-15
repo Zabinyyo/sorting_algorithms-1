@@ -1,0 +1,167 @@
+0x1B. C - Sorting algorithms & Big O
+	Sorting algorithm
+		In computer science, a sorting algorithm is an algorithm that puts elements of a list in a 
+		certain order. The most frequently used orders are numerical order and lexicographical 
+		order. More formally, the output of any sorting algorithm must satisfy two conditions:
+
+		- The output is in nondecreasing order
+		- The output is a permutation (a reordering) of the input
+
+	Further, the input data is often stored in array, which allows random access, rather than a 
+	list, which only allows sequential access; though many algorithms can be applied to either 
+	type of data after suitable modification.
+
+		Classification
+			Sorting algorithms are often classified by:
+
+				- Computational complexity in terms of the size of the list (n)
+				- Computational complexity of swaps (for "in-place" algorithms)
+				- Memory usage (and use of other computer resources)
+				- Recursion: some algorithms are either recursive or non-recursive, while others 
+				may be both
+				- Stability: stable sorting algorithms maintain the relative order of records with 
+				equal keys
+				- Wheter or not they are a comparison sort.
+				- General method: insertion, exchange, selection, merging, etc.
+				- Wheter the algorithm is serial or parallel
+				- Adaptability: wheter or not the presortedness of the input affects the running 
+				time.
+
+			Stability
+				Stable sort algorithms sort repeated elements in the same order that they appear in 
+				the input: if two items compare as equal, then their relative order will be 
+				preserved, so that if one came before the other in the input, it will also come 
+				before the other in the output. This allows the possibility of multiple different 
+				correctly sorted versions of the original list. 
+
+				Stability is important for the following reason: if we have a correlation between 
+				two values in two different arrays and we sort any of this arrays, the correlation 
+				must be preserved.
+
+				The data being sorted can be represented as a record or tuple of values, and the 
+				part of the data that is used for sorting is called the key.
+
+				When equal elements are indistinguishable, such as with integers, or more generally, 
+				any data where the entire element is the key, stability is not an issue. Stability 
+				is also not an issue if all keys are different
+
+		Comparison
+				See table at: https://en.wikipedia.org/wiki/Sorting_algorithm ---> comparison_of_algorithms
+
+		Popular sorting algorithms
+			While there are a large number of sorting algorithms, in practical implementations a few 
+			algorithms predominate. Insertion sort is widely used for small data sets, while for 
+			large data sets an asymptotically efficient sort is used, primarily heap sort merge 
+			sort or quicksort. Highly tuned implementations use more sophisticated variants, such 
+			as Timsort (merge sort, insertion sort, and additional logic), used in Android, Java, 
+			and Python, and introsort (quicksort and heap sort), used (in variant forms) in some 
+			C++ sort implementations and in .NET
+
+			Simple sort
+				Two of the simplest sorts are insertion and selection sort, both of which are 
+				efficient in small data.
+
+				Insertion sort
+					Insertion sort is a simple sorting algorithm that is relatively efficient for 
+					small lists and mostly sorted lists, and is often used as part of more 
+					sophisticated algorithms. It works by taking elements from the list one by one 
+					and inserting them in their correct position into a new sorted list similar to 
+					how we put money in our wallet.
+
+					Pseudocode:
+
+						i ← 1
+						while i < length(A)
+							j ← i
+							while j > 0 and A[j-1] > A[j]
+								swap A[j] and A[j-1]
+								j ← j - 1
+							end while
+							i ← i + 1
+						end while
+
+						slightly faster version:
+
+						i ← 1
+						while i < length(A)
+							x ← A[i]
+							j ← i - 1
+							while j >= 0 and A[j] > x
+								A[j+1] ← A[j]
+								j ← j - 1
+							end while
+							A[j+1] ← x[3]
+							i ← i + 1
+						end while
+
+				selection sort
+					selection sort is an in-place comparison sorting algorithm. It has an O(n2) 
+					time complexity, which makes it inefficient on large lists, and generally 
+					performs worse than the similar insertion sort.
+
+					Pseudocode:
+
+					i ← 1
+					while i < length(A)
+						x ← A[i]
+						j ← i + 1
+						while j < length(A)
+							if A[j] < A[i]
+								swap A[j] and A[i]
+							j ← j + 1
+						end while
+						i ← i + 1
+					end while
+
+			Efficient sorts
+				quicksort
+					Quicksort is a divide and conquer algorithm which relies on a partition 
+					operation: to partition an array, an element called a pivot is selected. All 
+					elements smaller than the pivot are moved before it and all greater elements are 
+					moved after it
+
+					Pseudocode: 
+
+					function qs(a)
+						x ← pivot from the list (optimum value: list's median)
+						while list is not divide in two
+							divide list in two (a_l, a_u)
+							a_l constains all elements minor than x
+							a_up conditions all elements major or equal than x
+						end while
+						if a_l exists
+							qs(a_l)
+						end if
+						if a_u exists
+							qs(a_u)
+						end if
+					end qs
+
+			Bubble sort
+				Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm 
+				that repeatedly steps through the list, compares adjacent elements and swaps them 
+				if they are in the wrong order. The pass through the list is repeated until the list 
+				is sorted. The algorithm, which is a comparison sort, is named for the way smaller 
+				or larger elements "bubble" to the top of the list
+
+				Pseudocode:
+
+				j ← len(list)
+				while list is not sorted and n > 0
+					i ← 1
+					while i <= n
+						if (a[i - 1] > a[i])
+							swap a[i - 1] and a[i]
+						end if
+						i ← i + 1
+					end while
+					j ← j - 1
+				end while
+
+	Big O notation
+		Big O notation is a mathematical notation that describes the limiting behavior of a 
+		function when the argument tends towards a particular value or infinity (complexity of an 
+		algorithm). It is used to  classify algorithms according to how their run time or space 
+		requirements grow as the input size grows
+
+		See table at: https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities
