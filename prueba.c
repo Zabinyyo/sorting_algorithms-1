@@ -1,1 +1,4 @@
-Printf(hola)
+#include <stdio.h>
+int main(void){
+    printf("hola");
+}
