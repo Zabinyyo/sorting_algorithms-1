@@ -32,5 +32,7 @@ void quick_sort(int *array, size_t size);
 void swap_head(listint_t **list, listint_t *aux);
 void swap_middle(listint_t *aux);
 void swap_tail(listint_t *aux);
+int partition(int *array, int low, int high, size_t size);
+void quick(int *array, int low, int high, size_t size);
 
 #endif
