@@ -1,20 +1,5 @@
 #include "sort.h"
 /**
- * pow_ - Find the result of 3^k ultin a gap is found
- * @base: Number 3 acording to the Knuth sequence
- * @power: Starts at 1 ultil condition met
- * Return: result of operation
- */
-int pow_(int base, int power)
-{
-	while (power > 0)
-	{
-		base *= base;
-		power--;
-	}
-	return (base);
-}
-/**
  * shell_sort - This algorithm uses insertion sort on a widely
  * spread elements, first to sort them and then sorts the less widely
  * spaced elements. This spacing is termed as interval. This interval
@@ -24,17 +9,13 @@ int pow_(int base, int power)
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t k = 1, gap = 0, i = 0, j = 0;
+	size_t gap = 1, i = 0, j = 0;
 	int tmp = 0;
 
 	if (size < 2)
 		return;
-	gap = (pow_(3, k) - 1) / 2;
 	while (gap < size / 3)
-	{
-		k++;
-		gap = (pow_(3, k) - 1) / 2;
-	}
+		gap = gap * 3 + 1;
 	while (gap > 0)
 	{
 		j = gap;
