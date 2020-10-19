@@ -1,4 +1,9 @@
 #include "sort.h"
+/**
+ * swap_head - swaps a node at the beggining of the list
+ * @list: Doubly linked list with nodes to sort acording to number n.
+ * @aux: auxiliar node to compare
+ */
 void swap_head(listint_t **list, listint_t *aux)
 {
 	aux->prev->next = aux->next;
@@ -8,6 +13,10 @@ void swap_head(listint_t **list, listint_t *aux)
 	aux->next->prev = aux;
 	*list = aux;
 }
+/**
+ * swap_middle - swaps a node at the middle of the list
+ * @aux: auxiliar node to compare
+ */
 void swap_middle(listint_t *aux)
 {
 	aux->prev->next = aux->next;
@@ -17,6 +26,10 @@ void swap_middle(listint_t *aux)
 	aux->prev = aux->next->prev;
 	aux->next->prev = aux;
 }
+/**
+ * swap_tail - swaps a node at the end of the list
+ * @aux: auxiliar node to compare
+ */
 void swap_tail(listint_t *aux)
 {
 	aux->prev->next = aux->next;
@@ -25,6 +38,11 @@ void swap_tail(listint_t *aux)
 	aux->prev = aux->next->prev;
 	aux->next->prev = aux;
 }
+/**
+ * insertion_sort_list - Insertion sort is a simple sorting algorithm
+ * that builds the final sorted array (or list) one item at a time.
+ * @list: Doubly linked list with nodes to sort acording to number n.
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *aux = NULL;
