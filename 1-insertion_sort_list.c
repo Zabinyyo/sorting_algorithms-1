@@ -7,7 +7,8 @@
 void swap_head(listint_t **list, listint_t *aux)
 {
 	aux->prev->next = aux->next;
-	aux->next->prev = aux->prev;
+	if (aux->next)
+		aux->next->prev = aux->prev;
 	aux->next = aux->prev;
 	aux->prev = aux->prev->prev;
 	aux->next->prev = aux;
