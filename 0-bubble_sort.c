@@ -1,8 +1,16 @@
 #include "sort.h"
+/**
+ * bubble_sort - Used to sort a given set of n elements
+ * provided in form of an array with n number of elements.
+ * Bubble Sort compares all the element one by one and sort
+ * them based on their values.
+ * @array: Array of data to be sorted
+ * @size: Size of the array
+ */
 
 void bubble_sort(int *array, size_t size)
 {
-	int i = 0, j =0, sorted = 1, tmp = 0;
+	int i = 0, j = 0, sorted = 1, tmp = 0;
 
 	if (size < 2)
 		return;
