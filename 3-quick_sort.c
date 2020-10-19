@@ -1,4 +1,11 @@
 #include "sort.h"
+/**
+ * partition - sort the selected section
+ * @array: Array of data to be sorted
+ * @low: Beggining of the selected list
+ * @high: End of the selected list
+ * @size: Size of the array
+ */
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high], tmp = 0, i = low - 1, j = low;
@@ -24,6 +31,16 @@ int partition(int *array, int low, int high, size_t size)
 		print_array(array, size);
 	return (i);
 }
+/**
+ * quick - Quicksort is a divide-and-conquer algorithm. It works by
+ * selecting a 'pivot' element from the array and partitioning the other
+ * elements into two sub-arrays, according to whether they are less than
+ * or greater than the pivot. The sub-arrays are then sorted recursively.
+ * @array: Array of data to be sorted
+ * @low: Beggining of the selected list
+ * @high: End of the selected list
+ * @size: Size of the array
+ */
 void quick(int *array, int low, int high, size_t size)
 {
 	int p = 0;
@@ -35,6 +52,14 @@ void quick(int *array, int low, int high, size_t size)
 		quick(array, p + 1, high, size);
 	}
 }
+/**
+ * quick_sort - Quicksort is a divide-and-conquer algorithm. It works by
+ * selecting a 'pivot' element from the array and partitioning the other
+ * elements into two sub-arrays, according to whether they are less than
+ * or greater than the pivot. The sub-arrays are then sorted recursively.
+ * @array: Array of data to be sorted
+ * @size: Size of the array
+ */
 void quick_sort(int *array, size_t size)
 {
 	if (size < 2)
