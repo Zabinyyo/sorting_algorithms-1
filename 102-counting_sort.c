@@ -10,14 +10,14 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	unsigned i = 1, index = 0, max_ = array[0];
+	unsigned int i = 1, index = 0, max_ = array[0];
 	int *buffer = NULL, *copy;
 
-	if (size < 2)
+	if (!array || size < 2)
 		return;
 	while (i < size)
 	{
-		if (max_ <(unsigned)array[i])
+		if (max_ < (unsigned int)array[i])
 			max_ = array[i];
 		i++;
 	}
