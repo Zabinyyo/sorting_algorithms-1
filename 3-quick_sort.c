@@ -5,6 +5,7 @@
  * @low: Beggining of the selected list
  * @high: End of the selected list
  * @size: Size of the array
+ * Return: index increased from low if there is a swap
  */
 int partition(int *array, int low, int high, size_t size)
 {
