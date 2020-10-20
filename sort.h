@@ -41,5 +41,6 @@ void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void top_downsplit(int *array, size_t begin, size_t end, int *copy);
 void td_merge(int *array, size_t begin, size_t middle, size_t end, int *copy);
+void heap_sort(int *array, size_t size);
 
 #endif
