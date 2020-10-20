@@ -1,4 +1,15 @@
 #include "sort.h"
+/**
+ * td_merge - Divides input array in two halves,
+ * calls itself for the two halves and then merges
+ * the two sorted halves. The merge() function is
+ * used for merging two halves.
+ * @array: Array of data to be sorted
+ * @begin: Start of the array
+ * @middle: middle of the array
+ * @end: end of array
+ * @copy: copy of the original array
+ */
 void td_merge(int *array, size_t begin, size_t middle, size_t end, int *copy)
 {
 	size_t i = begin, j = middle, k = begin, l = middle, flag = 0;
@@ -40,6 +51,14 @@ void td_merge(int *array, size_t begin, size_t middle, size_t end, int *copy)
 	}
 	printf("\n");
 }
+/**
+ * top_downsplit - Divides input array in two halves.
+ * with the left array being smaller than the right array
+ * @array: Array of data to be sorted
+ * @begin: Start of the array
+ * @end: end of array
+ * @copy: copy of the original array
+ */
 void top_downsplit(int *array, size_t begin, size_t end, int *copy)
 {
 	size_t middle = 0;
@@ -51,7 +70,14 @@ void top_downsplit(int *array, size_t begin, size_t end, int *copy)
 	top_downsplit(copy, middle, end, array);
 	td_merge(array, begin, middle, end, copy);
 }
-
+/**
+ * merge_sort - Divides input array in two halves,
+ * calls itself for the two halves and then merges
+ * the two sorted halves. The merge() function is
+ * used for merging two halves.
+ * @array: Array of data to be sorted
+ * @size: size of the array
+ */
 void merge_sort(int *array, size_t size)
 {
 	int *copy = NULL;
