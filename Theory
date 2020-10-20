@@ -157,6 +157,15 @@
 					end while
 					j ← j - 1
 				end while
+			
+			Heap Sort Algorithm
+				Heap sort works by visualizing the elements of the array as a special kind of complete
+				binary tree called a heap. A complete binary tree has an interesting property that we 
+				can use to find the children and parents of any node.
+
+				If the index of any element in the array is i, the element in the index 2i+1 will become
+				the left child and element in 2i+2 index will become the right child. Also, the parent of
+				any element at index i is given by the lower bound of (i-1)/2.
 
 	Big O notation
 		Big O notation is a mathematical notation that describes the limiting behavior of a 
