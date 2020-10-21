@@ -42,5 +42,9 @@ void merge_sort(int *array, size_t size);
 void top_downsplit(int *array, size_t begin, size_t end, int *copy);
 void td_merge(int *array, size_t begin, size_t middle, size_t end, int *copy);
 void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
+int find_maxvalue(int *array, size_t size);
+int **malloc_(size_t copies, size_t size);
+void array_copy(int *source, int *destiny, size_t size);
 
 #endif
