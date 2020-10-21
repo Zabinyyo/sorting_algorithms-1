@@ -1,4 +1,11 @@
 #include "sort.h"
+/**
+ * swap - swaps elements of the array checking the position
+ * @array: Array with numbers to be sorted
+ * @i: position
+ * @j: position
+ * @dir: 1 if is ascending
+ */
 void swap(int *array, size_t i, size_t j, size_t dir)
 {
 	int tmp = 0;
@@ -10,6 +17,13 @@ void swap(int *array, size_t i, size_t j, size_t dir)
 		array[j] = tmp;
 	}
 }
+/**
+ * merge - swaps elements of the array
+ * @array: Array with numbers to be sorted
+ * @low: Starting point of the lower part of the array
+ * @size: size of the new partition
+ * @dir: 1 if is ascending
+ */
 void merge(int *array, size_t low, size_t size, size_t dir)
 {
 	size_t k = 0, i = 0;
@@ -24,6 +38,14 @@ void merge(int *array, size_t low, size_t size, size_t dir)
 		merge(array, low + k, k, dir);
 	}
 }
+/**
+ * sort_ - Sorts the array using recursion
+ * @array: Array with numbers to be sorted
+ * @low: Starting point of the lower part of the array
+ * @size: size of the new partition
+ * @dir: 1 if is ascending
+ * @length: size of the original array
+ */
 void sort_(int *array, size_t low, size_t size, size_t dir, size_t length)
 {
 	size_t k = 0;
@@ -56,6 +78,14 @@ void sort_(int *array, size_t low, size_t size, size_t dir, size_t length)
 		merge(array, low, size, dir);
 	}
 }
+/**
+ * bitonic_sort - Bitonic sort is a comparison-based sorting algorithm
+ * that can be run in parallel. It focuses on converting a random sequence
+ * of numbers into a bitonic sequence, one that monotonically increases, then
+ * decreases. Rotations of a bitonic sequence are also bitonic.
+ * @array: Array of data to be sorted
+ * @size: size of the original array
+ */
 void bitonic_sort(int *array, size_t size)
 {
 	if (size < 2)
