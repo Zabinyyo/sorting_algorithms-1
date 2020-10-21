@@ -1,4 +1,10 @@
 #include "sort.h"
+/**
+ * find_maxvalue - Finds the number with most digits
+ * @array: Array with numbers to be sorted
+ * @size: size of the original array
+ * Return: The array with the allocation for the copies
+ */
 int find_maxvalue(int *array, size_t size)
 {
 	int max_ = array[0];
@@ -13,6 +19,12 @@ int find_maxvalue(int *array, size_t size)
 
 	return (max_);
 }
+/**
+ * malloc_ - Creates the arrays to be filled
+ * @copies: Array to be copied
+ * @size: size of the original array
+ * Return: The array with the allocation for the copies
+ */
 int **malloc_(size_t copies, size_t size)
 {
 	int **array = NULL;
@@ -35,6 +47,12 @@ int **malloc_(size_t copies, size_t size)
 
 	return (array);
 }
+/**
+ * array_copy - Copies the array
+ * @source: Array to be copied
+ * @destiny: Copied array
+ * @size: size of the original array
+ */
 void array_copy(int *source, int *destiny, size_t size)
 {
 	size_t i = 0;
@@ -42,6 +60,14 @@ void array_copy(int *source, int *destiny, size_t size)
 	while (i < size)
 		destiny[i] = source[i], i++;
 }
+/**
+ * radix_sort - sorts the elements by initially grouping the individual
+ * digits of the same place value. The idea of Radix Sort is to do digit
+ * by digit sort starting from least significant digit(LSD) to the most
+ * significant digit(MSD), according to their increasing/decreasing order.
+ * @array: Array of data to be sorted
+ * @size: size of the original array
+ */
 void radix_sort(int *array, size_t size)
 {
 	int max_ = 0, pow_ = 1, **aux, *copy, *copy2, *copy3;
