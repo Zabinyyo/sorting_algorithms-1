@@ -25,4 +25,4 @@
 
 [Oscar Morales](https://github.com/oimoralest)
 
-[Luis Miguel Cifuentes](https://github.com/1uiscalderon)
+[Luis Miguel Calderon](https://github.com/1uiscalderon)
